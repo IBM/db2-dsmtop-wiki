@@ -1,0 +1,96 @@
+---
+title: Executed SQL (package cache)
+---
+
+<h2>Purpose</h2>
+
+<p><img alt="Statements-Executed-SQL.png" lconnwikimacro="image" src="../images/Statements-Executed-SQL.png" title="Statements-Executed-SQL.png"/></p>
+<h2>Histograms</h2>
+<p>(none)</p>
+<h2>Summaries (Gauges)</h2>
+<p>(none)</p>
+<h2>Metrics Shown in Grid</h2>
+<p><u>SQL_Statement HashValue</u></p>
+<p>A hash computed from the text of the SQL statement.</p>
+
+<p><u>Sql Statement (30 first char.)<br/>
+ Num Execution</u></p>
+<p>Number of times this statement has been executed.  This count is reset if a statement falls out of the cache.</p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html">mon_get_pkg_cache_stmt</a>.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0002515.html">num_executions</a></span></p>
+
+<p><u>Exec Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0056454.html">stmt_exec_time</a></span></p>
+<p><br/>
+<u>Avg Exec Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="margin-left:40px"><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0056454.html">stmt_exec_time</a><span style="font-family:'courier new' , 'courier' , monospace">/ num_exec_with_metrics</span></p>
+<p><br/>
+<u>Cpu Time</u></p>
+<p>Total CPU time consumed by all executions of this statement.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.total_cpu_time</span></p>
+<p><br/>
+<u>Avg Cpu Time</u></p>
+<p>Average CPU time consumed by an execution of this statement.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">total_cpu_time / num_exec_with_metrics</span></p>
+<p><br/>
+<u>Rows Read</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.rows_read</span></p>
+<p><br/>
+<u>Rows Written</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.rows_modified</span></p>
+<p><br/>
+<u>Data L_reads</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001235.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_data_l_reads</a></p>
+<p><br/>
+<u>Data Hits %</u></p>
+<p>Approximate hit ratio for data (row based) reads experienced by this query.</p>
+<p>This value does not account for data read asynchronously.</p>
+
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace">(1.0 - pool_data_p_reads / </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001235.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace">) * 100.0</span></p>
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"> </p>
+<p><u>Index L_Reads</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001238.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_index_l_reads</a></p>
+<p><br/>
+<u>Index Hits %</u></p>
+<p>Approximate hit ratio for index reads experienced by this query.<br/>
+ This value does not account for index data read asynchronously.</p>
+
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace">(1.0 - pool_index_p_reads / </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001238.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_index_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace">) * 100.0</span></p>
+<div > </div>
+<p><u>Temp L_Reads</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="margin-left:40px"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">pool_temp_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + pool_temp_index_l_reads</span></p>
+<p><br/>
+<u>Temp Hits %</u></p>
+
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif;margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">(1.0 - (pool_temp_data_p_reads + pool_temp_index_p_reads) /</span></p>
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif;margin-left:80px"><span style="font-family:'courier new' , 'courier' , monospace">(</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">pool_temp_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + pool_temp_index_l_reads)) * 100.0</span></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"> </p>
+<p><br/>
+<u>Avg Sort Per Exec</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">total_section_sorts / num_exec_with_metrics</span></p>
+<p><br/>
+<u>Sort Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/c0059017.html" style="font-family:'courier new' , 'courier' , monospace">mon_get_pkg_cache_stmt</a><span style="font-family:'courier new' , 'courier' , monospace">.total_section_sort_time</span></p>
+<h2>Default Sort Order</h2>
+<p>Num Execution (descending)</p>
+<h2>Navigation</h2>
+<p>Keyboard navigation: VsD</p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Dedicated shortcut key: alt-D</span></p>
+<h6>Author: KevinLBeck</h6>

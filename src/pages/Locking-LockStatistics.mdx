@@ -1,0 +1,40 @@
+---
+title: Locking - Lock Statistics
+---
+
+<h2>Purpose</h2>
+<p>Use this view to find sessions (connections) that have been involved in locking problems:</p>
+<ul ><li>Sessions that have recently experienced excessive lock waits, time outs, escalations or deadlocks</li><li>Sessions that have consumed excessive log space over their lifetime</li><li>Sessions that are currently holding many locks</li><li>Idle sessions</li></ul>
+<p>For context, this view also shows some basic information to help you identify the session without needing to jump to another view:</p>
+<ul ><li>Application Name</li><li>User ID</li><li>Workload Name</li></ul>
+
+<p><img alt="Locking-LockStatistics.png" lconnwikimacro="image" src="../images/Locking-LockStatistics.png" title="Locking-LockStatistics.png"/></p>
+<h2>Histograms and Summaries (Gauges)</h2>
+<p>(none)</p>
+<h2>Metrics Shown</h2>
+<p><u>Application Handle<br/>
+ Application Name<br/>
+ User ID<br/>
+ Lock Waits/s<br/>
+ Lock Wait Time %<br/>
+ Lock Timeouts/s<br/>
+ Lock Escalations/s<br/>
+ Dead Locks/s<br/>
+ UOW State<br/>
+ Conection Start Time<br/>
+ Coordinator Number<br/>
+ % CPU Time<br/>
+ Memory Pool Used(KB)<br/>
+ Rows Read/s<br/>
+ Logical reads/s<br/>
+ Locks Held<br/>
+ Log Used (KB)<br/>
+ Idle Time<br/>
+ Workload Name</u></p>
+
+<h2>Default Sort Column</h2>
+<p>Application Handle, descending</p>
+<h2>Navigation</h2>
+<p>Keyboard navigation: VLs</p>
+<p>Dedicated shortcut key: (none)</p>
+<h6>Author: KevinLBeck</h6>

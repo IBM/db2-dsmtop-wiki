@@ -1,0 +1,89 @@
+---
+title: Throughput - Workload Assignment
+---
+
+<h2>Purpose</h2>
+<p>Show what workload each connection is mapped to, and the client info fields.  This is useful for debugging connections that are not being mapped as expected.  This view also shows some WLM specific metrics related to connections.</p>
+<p>The primary fields shown are the application handle (identifies the connection), the workload it is currently mapped to and the connection attributes (aka client info fields) for the connection.</p>
+
+<p><img alt="Throughput-WorkloadAssignment.png" lconnwikimacro="image" src="../images/Throughput-WorkloadAssignment.png" title="Throughput-WorkloadAssignment.png"/></p>
+<h2>Histograms and Summaries (Gauges)</h2>
+<p>(none)</p>
+<h2>Metrics Shown in Grid</h2>
+<p><u>Application Handle</u></p>
+
+<p>Source: <span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.application_handle</span></p>
+<p><br/>
+<u>Event State</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: mon_get_agent.event_state</span></p>
+<p><br/>
+<u>Event Type</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: mon_get_agent.event_type</span></p>
+<p><br/>
+<u>Event Object</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: mon_get_agent.event_object</span></p>
+<p><br/>
+<u>Coordinator Member</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.coord_member</span></p>
+<p><br/>
+<u>Connection Start Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <span style="font-family:'courier new' , 'courier' , monospace">mon_get_connection.connection_start_time</span></span></p>
+<p><br/>
+<u>Workload Name</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.workload_name</span></p>
+<p><br/>
+<u>User ID</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.system_auth_id</span></p>
+<p><br/>
+<u>Session User ID</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.session_auth_id</span></p>
+<p><br/>
+<u>Application Name</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.application_name</span></p>
+<p><br/>
+<u>Client Workstation</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.client_wrkstnname</span></p>
+<p><br/>
+<u>Client Accounting String</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.client_acctng</span></p>
+<p><br/>
+<u>Client User ID</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.client_user</span></p>
+<p><br/>
+<u>Client Application Name</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.client_applname</span></p>
+<p><br/>
+<u>Role ID</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <span style="font-family:'courier new' , 'courier' , monospace">syscat.roleauth</span></span></p>
+<p  style="margin-left:40px">Lookup <span style="font-family:'courier new' , 'courier' , monospace">rolename</span> in <span style="font-family:'courier new' , 'courier' , monospace">syscat.roleauth</span></p>
+<p  style="margin-left:40px"><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">For each workload occurrence, find all rolename's where the grantee matches </span><span style="font-family:'courier new' , 'courier' , monospace">wlm_get_service_class_workload_occurrences.system_auth_id </span><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">and present them as a comma separated list. </span></p>
+<p><br/>
+<u>Group ID<br/>
+ Activities Completed/m<br/>
+ Activities Aborted/m<br/>
+ Activities Rejected/m<br/>
+ WLM Queue Assignments/m<br/>
+ Threshold Violations/m<br/>
+ Recent SQL<br/>
+ Address<br/>
+ Internal Application</u></p>
+<h2>Default Sort Column</h2>
+<p>Application handle, descending</p>
+<h2>Navigation</h2>
+<p>Keyboard navigation: Vta</p>
+<p>Dedicated shortcut key: (none)</p>
+<h6>Author: KevinLBeck</h6>

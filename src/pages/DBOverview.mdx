@@ -1,0 +1,225 @@
+---
+title: DB Overview
+---
+
+<h2>Purpose</h2>
+<p>The overview tells you at a glance how busy the monitored database is.  It provides basic information about the current level of activity.  For example:</p>
+<ul ><li>Number of connections</li><li>Memory consumption</li><li>I/O efficiency</li><li>Indicators of contention such as high lock wait time, lock escalations or deadlocks.</li></ul>
+<p>This is the view you see when you start dsmtop.</p>
+
+<p><img alt="DB-Overview.png" lconnwikimacro="image" src="../images/DB-Overview.png" title="DB-Overview.png"/></p>
+<h2>Metrics Shown</h2>
+<p>The DB Overview is presented in a tile layout, rather than the grid layout used for most views.  Each metrics appears with a short label above it.</p>
+<hr />
+<p><u>Start Date</u></p>
+<p>The date the monitored database was activated.</p>
+
+<p>Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en">mon_get_database</a>.</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001154.html?lang=en" style="font-family:'courier new' , 'courier' , monospace;line-height:1.5">db_conn_time</a></p>
+<hr />
+<p><u>Start Time</u></p>
+<p>The time the monitored database was activated.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a><span style="font-family:'courier new' , 'courier' , monospace">.</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001154.html?lang=en" style="line-height:1.5;font-family:'courier new' , 'courier' , monospace">db_conn_time</a></p>
+<hr />
+<p><u>Database Status</u></p>
+<p>According to the Knowledge Center, the possible values for this field are:</p>
+<ul ><li style="color:black;margin-bottom:0.0001pt;line-height:normal">ACTIVE</li><li style="color:black;margin-bottom:0.0001pt;line-height:normal">QUIESCE_PEND</li><li style="color:black;margin-bottom:0.0001pt;line-height:normal">QUIESCED</li><li style="color:black;margin-bottom:0.0001pt;line-height:normal">ROLLFWD</li><li style="color:black;margin-bottom:0.0001pt;line-height:normal">ACTIVE_STANDBY</li><li style="color:black;margin-bottom:0.0001pt;line-height:normal">STANDBY</li></ul>
+<p>This field is present for compatibility with db2top.  Most of these states will prevent dsmtop from connecting, so you will never see them.</p>
+
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001156.html?lang=en">db_status</a></span></p>
+<hr />
+<p><u>System Physical Mem</u></p>
+<p>Total physical memory on this host.</p>
+
+<p>Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059355.html?cp=SSEPGG_10.5.0%2F3-6-1-3-7-7&amp;lang=en">env_get_system_resources</a>.</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060193.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">memory_total</a></p>
+<hr />
+<p><u>Instance Mem Committed</u></p>
+<p>Memory committed, as opposed to used, is a better measure of the memory footprint of DB2.  That is, how much memory is committed by the OS for use by DB2 and hence unavailable for other processes.</p>
+
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059463.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-38&amp;lang=en"><span style="font-family:'courier new' , 'courier' , monospace">mon_get_memory_set</span></a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">sum(<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0059448.html?cp=SSEPGG_10.5.0&amp;lang=en">memory_set_committed</a>) for all DBMS memory sets</span></p>
+<hr />
+<p><u>Database Mem Committed</u></p>
+<p>The portion of memory committed for just this database, as opposed to the whole instance.</p>
+
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059463.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-38&amp;lang=en"><span style="font-family:'courier new' , 'courier' , monospace">mon_get_memory_set</span></a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">sum(</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0059448.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">memory_set_committed</a><span style="font-family:'courier new' , 'courier' , monospace">) for all DATABASE memory sets</span></p>
+<hr />
+<p><u>Buffer Pool Memory Used</u></p>
+<p>Buffer pool memory is typically the largest component of memory usage by DB2.  So it is broken out separately here.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059464.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-37&amp;lang=en"><span style="font-family:'courier new' , 'courier' , monospace">mon_get_memory_pool</span></a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">sum(<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0059534.html?lang=en">memory_pool_used</a>) for all BP memory pools</span></p>
+<hr />
+<p><u>Shared Sort Memory Used</u></p>
+
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059464.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-37&amp;lang=en" style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace">mon_get_memory_pool</span></a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">sum(</span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0059534.html?lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">memory_pool_used</a><span style="font-family:'courier new' , 'courier' , monospace">) for all SHARED_SORT memory pools</span></p>
+<hr />
+<p><u>Transactions / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0056527.html?cp=SSEPGG_10.5.0&amp;lang=en">total_app_commits</a> + <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0056528.html?cp=SSEPGG_10.5.0&amp;lang=en">total_app_rollbacks</a></span></p>
+<hr />
+<p><u>Select Stmts / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001334.html?lang=en">select_sql_stmts</a></span></p>
+<hr />
+<p><u>UID /s</u></p>
+<p>Insert + update + delete statements / second.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001335.html?cp=SSEPGG_10.5.0&amp;lang=en">uid_sql_stmts</a></span></p>
+<hr />
+<p><u>Activities Completed / s</u></p>
+<p>The number of activities completed per second is one measure of how much work is being accomplished by the data server.  Activities typically correspond to a query, although there a few additional things that count as an activity including LOAD and stored procedures calls.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054007.html?lang=en">act_completed_total</a></span></p>
+<hr />
+<p><u>Activities Aborted / s</u></p>
+<p>This reflects how many activities failed due to errors of some sort, including being cancelled or violating a WLM threshold configured to stop execution.</p>
+
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054006.html?lang=en">act_aborted_total</a></span></p>
+<hr />
+<p><u>Activities Queued / s</u></p>
+
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054062.html?lang=en">wlm_queue_assignments_total</a></span></p>
+<hr />
+<p><u>Pct Time Queued</u></p>
+<p>On average, what is the aggregate percentage of time do activities spend queued by WLM, waiting to begin execution.  This is averaged across all activities, including ones that are never queued.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054063.html?cp=SSEPGG_10.5.0&amp;lang=en">wlm_queue_time_total</a> / (<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054060.html?cp=SSEPGG_10.5.0&amp;lang=en">total_rqst_time</a> + <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054017.html?cp=SSEPGG_10.5.0&amp;lang=en">client_idle_wait_time</a>)</span></p>
+<hr />
+<p><u>Threshold Violations / m</u></p>
+<p>WLM threshold violations are normalized to per minute instead of per second because threshold violations should be infrequent.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0056501.html?lang=en">thresh_violations</a></span></p>
+<hr />
+<p><u>Connections</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060767.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-12&amp;lang=en"><span style="font-family:'courier new' , 'courier' , monospace">mon_get_agent</span></a></p>
+<p  style="margin-left:40px">Count of all agents where application_handle &lt;&gt; 0 and agent_state = 'ACTIVE'</p>
+<hr />
+<p><u>Active Connections</u></p>
+
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060767.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-12&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace">mon_get_agent</span></a></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Count of all agents that meet the following conditions:</p>
+<ul ><li style='font-family: "helvetica neue", helvetica, arial, sans-serif; margin-left: 40px !important;'>application_handle &lt;&gt; 0</li><li style='font-family: "helvetica neue", helvetica, arial, sans-serif; margin-left: 40px !important;'>agent_state = 'ACTIVE'</li><li style='font-family: "helvetica neue", helvetica, arial, sans-serif; margin-left: 40px !important;'>event_state = 'EXECUTING'</li><li style='font-family: "helvetica neue", helvetica, arial, sans-serif; margin-left: 40px !important;'>event_type = 'PROCESS'</li><li style='font-family: "helvetica neue", helvetica, arial, sans-serif; margin-left: 40px !important;'>agent_state_last_update_time &lt; 15 seconds ago</li></ul>
+<hr />
+<p><u>Locks Held</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001281.html?cp=SSEPGG_10.5.0&amp;lang=en">num_locks_held</a></span></p>
+<hr />
+<p><u>Lock Waits</u></p>
+<p>Count of the number of agents currently waiting to acquire a lock.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001293.html?lang=en">lock_waits</a></span></p>
+<hr />
+<p><u>Lock Escalations / m</u></p>
+<p>The number of times that locks have been escalated from several row locks to a table lock.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001284.html?cp=SSEPGG_10.5.0&amp;lang=en">lock_escals</a></span></p>
+<hr />
+<p><u>Deadlocks / m</u></p>
+<p>The number of deadlocks that have occurred.</p>
+<p>Deadlocks can be caused by the following situations:</p>
+<ul class="ul"  style="margin-top:0.1em;padding-top:0.1em;color:rgb( 0 , 0 , 0 );font-family:sans-serif;font-size:medium;line-height:normal"><li class="li" style="margin-top: 0em; margin-bottom: 0em; margin-left: 0em !important;">
+<p><span style="font-size:12px">Lock escalations are occurring for the database</span></p>
+</li><li class="li" style="margin-top: 0em; margin-bottom: 0em; margin-left: 0em !important;">
+<p><span style="font-size:12px">An application may be locking tables explicitly when system-generated row locks may be sufficient</span></p>
+</li><li class="li" style="margin-top: 0em; margin-bottom: 0em; margin-left: 0em !important;">
+<p><span style="font-size:12px">An application may be using an inappropriate isolation level when binding</span></p>
+</li><li class="li" style="margin-top: 0em; margin-bottom: 0em; margin-left: 0em !important;">
+<p><span style="font-size:12px">Catalog tables are locked for repeatable read</span></p>
+</li><li class="li" style="margin-top: 0em; margin-bottom: 0em; margin-left: 0em !important;">
+<p><span style="font-size:12px">Applications are getting the same locks in different orders, resulting in deadlock.</span></p>
+</li></ul>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001283.html?cp=SSEPGG_10.5.0&amp;lang=en">deadlocks</a></span></p>
+<hr />
+<p><u>Log Reads / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059253.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-61&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_transaction_log</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001278.html?cp=SSEPGG_10.5.0&amp;lang=en">log_reads</a></span></p>
+<hr />
+<p><u>Log Writes / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059253.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-61&amp;lang=en">mon_get_transaction_log</a>.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001279.html?lang=en">log_writes</a></span></p>
+<hr />
+<p><u>Logical Reads / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001235.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001238.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_index_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022731.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_xda_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060763.html?lang=en">pool_col_l_reads</a> +</span></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en">pool_temp_data_l_reads </a><span style="font-family:'courier new' , 'courier' , monospace;line-height:1.5">+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011303.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_index_l_reads </a>+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022738.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_xda_l_reads </a>+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060873.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_col_l_reads</a></span></p>
+<hr />
+<p><u>Physical Reads / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">pool_data_p_reads + pool_index_p_reads + pool_xda_p_reads +</span></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">pool_temp_data_p_reads + pool_temp_index_p_reads + pool_temp_xda_p_reads + pool_col_p_reads + pool_temp_col_p_reads</span></p>
+<hr />
+<p><u>Hit Ratio</u></p>
+<hr />
+<p><u>Async Reads / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">pool_async_data_reads + pool_async_index_reads + pool_async_xda_reads + pool_async_col_reads</span></p>
+<hr />
+<p><u>Writes / s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001261.html?cp=SSEPGG_10.5.0&amp;lang=en">direct_writes</a></span></p>
+<hr />
+<p><u>Async Writes / s</u></p>
+
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060769.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_database</a></p>
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif;margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">pool_async_data_writes + pool_async_index_writes + pool_async_xda_writes + pool_async_col_writes</span></p>
+<hr />
+<p><u>Avg P Read Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="line-height:1.5;font-family:'courier new' , 'courier' , monospace">pool_read_time / </span><span style="line-height:1.5;font-family:'courier new' , 'courier' , monospace">(pool_data_p_reads + pool_index_p_reads + pool_xda_p_reads + </span><span style="line-height:1.5;font-family:'courier new' , 'courier' , monospace">pool_col_p_reads +</span></p>
+<p  style="margin-left:160px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace"> pool_temp_data_p_reads + pool_temp_index_p_reads + pool_temp_xda_p_reads + pool_temp_col_p_reads)</span></p>
+<hr />
+<p><u>Avg D Read Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">direct_read_time / direct_reads</span></p>
+<hr />
+<p><u>Sorts / m</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.total_sorts</span></p>
+<hr />
+<p><u>Sort Overflows / m</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.sort_overflows</span></p>
+<hr />
+<p><u>Hash Joins / m</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.total_hash_joins</span></p>
+<hr />
+<p><u>Hash Join Overflows / m</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.hash_join_overflows</span></p>
+<hr />
+<p><u>Hash Grpbys / m</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.total_hash_grpbys</span></p>
+<hr />
+<p><u>Hash Grpby Overflows / m</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.hash_grpby_overflows</span></p>
+<hr />
+<p><u>Avg P Write Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">pool_write_time / (pool_data_writes + pool_index_writes + pool_xda_writes)</span></p>
+<hr />
+<p><u>Avg D Write Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">direct_write_time / direct_writes</span></p>
+<hr />
+<h2  style="font-size:1.5em;text-shadow:rgb( 255 , 255 , 255 ) 0px 1px 0px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif;color:rgb( 0 , 0 , 0 ) !important;padding:2px !important;border:none !important">Default Sort Column</h2>
+<p>N / A - this is a tile display, not a grid.</p>
+<h2  style="font-size:1.5em;text-shadow:rgb( 255 , 255 , 255 ) 0px 1px 0px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif;color:rgb( 0 , 0 , 0 ) !important;padding:2px !important;border:none !important">Navigation</h2>
+<p  style="margin-bottom:5px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Keyboard navigation: Vd</p>
+<p  style="margin-bottom:5px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Dedicated shortcut key: alt-d</p>
+<h6>Author: KevinLBeck</h6>

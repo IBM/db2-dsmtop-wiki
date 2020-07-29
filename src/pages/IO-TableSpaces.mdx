@@ -1,0 +1,113 @@
+---
+title: IO - Table Spaces
+---
+
+<h2>Purpose</h2>
+
+<p><img alt="IO-TableSpaces.png" lconnwikimacro="image" src="../images/IO-TableSpaces.png" title="IO-TableSpaces.png"/></p>
+<h2>Histograms and Summaries (Gauges)</h2>
+<p>(link TBD)</p>
+<h2>Metrics Shown in Grid</h2>
+<p><u>Tablespace Name</u></p>
+<p>THe name is prepended with '!' if the tablespace state is not "NORMAL".  For example "OFFLINE" or "ROLLFORWARD_IN_PROGRESS".</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a>.</span><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001295.html?cp=SSEPGG_10.5.0&amp;lang=en">tbsp_name</a></p>
+<p><br/>
+<u>Logical Reads/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001235.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001238.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_index_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022731.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_xda_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060763.html?lang=en">pool_col_l_reads</a> +</span></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en">pool_temp_data_l_reads </a><span style="font-family:'courier new' , 'courier' , monospace;line-height:1.5">+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011303.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_index_l_reads </a>+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022738.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_xda_l_reads </a>+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060873.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_col_l_reads</a></span></p>
+<p><br/>
+<u>Physical Reads/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Hit Ratio%</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Async Reads%</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Pages Aread</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Writes/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Async Reads/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Async Writes/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Direct Writes/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Data Writes/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Index Writes/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Avg_Reads Dir_Reqs</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Avg RdTime(ms)</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Avg WrTime(ms)</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Tbsp Type</u></p>
+<p>Possible values are:</p>
+<ul ><li>Regular</li><li>Large</li><li>System temporary</li><li>User temporary</li></ul>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a>.</span><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0007532.html?cp=SSEPGG_10.5.0&amp;lang=en">tbsp_content_type</a></p>
+<p><br/>
+<u># of DBP</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Avg PrefSize</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>I/O Skew</u></p>
+<p><br/>
+<u>Tbspace Status</u></p>
+<p>For example, "NORMAL", "BACKUP_PENDING", "OFFLINE".  Click <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0007533.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">tbsp_state</a> for the full list of possible values.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a>.<a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0007533.html?cp=SSEPGG_10.5.0&amp;lang=en">tbsp_state</a></span></p>
+<p><br/>
+<u>Tbspace Type</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>FSC On</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>File Closed/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Victim Buffers/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Unread PrefPages/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>XDA l_reads/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>XDA p_reads/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>XDA l_writes/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>Prefetch Size</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<p><br/>
+<u>IO/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053943.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-57&amp;lang=en">mon_get_tablespace</a></span></p>
+<h2>Default Sort Column</h2>
+<p>Tablespace Name: Ascending</p>
+<h2>Navigation</h2>
+<p>Keyboard navigation: VIt</p>
+<p>Dedicated shortcut key: alt-t</p>
+<h6>Author: KevinLBeck</h6>

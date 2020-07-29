@@ -1,0 +1,79 @@
+- title: DB Overview
+  pages:
+    - path: /DBOverview
+
+- title: Executed SQL (package cache)
+  pages:
+    - path: /ExecutedSQL(packagecache)
+  hasDivider: true
+- title: IO - Bufferpools
+  pages:
+    - path: /IO-Bufferpools
+
+- title: IO - CF Status
+  pages:
+    - path: /IO-CFStatus
+
+- title: IO - Logging Performance
+  pages:
+    - path: /IO-LoggingPerformance
+
+- title: IO - PureScale Performance
+  pages:
+    - path: /IO-PureScalePerformance
+
+- title: IO - Table Spaces
+  pages:
+    - path: /IO-TableSpaces
+  hasDivider: true
+- title: Locking - Blockers and Waiters
+  pages:
+    - path: /Locking-BlockersandWaiters
+
+- title: Locking - Lock Statistics
+  pages:
+    - path: /Locking-LockStatistics
+  hasDivider: true
+- title: Other - HADR
+  pages:
+    - path: /Other-HADR
+
+- title: Sessions (connections)
+  pages:
+    - path: /Sessions(connections)
+  hasDivider: true
+- title: Throughput - Members
+  pages:
+    - path: /Throughput-Members
+
+- title: Throughput - Service Classes
+  pages:
+    - path: /Throughput-ServiceClasses
+
+- title: Throughput - Skew Monitor
+  pages:
+    - path: /Throughput-SkewMonitor
+
+- title: Throughput - Time Spent
+  pages:
+    - path: /Throughput-TimeSpent
+
+- title: Throughput - Workload Assignment
+  pages:
+    - path: /Throughput-WorkloadAssignment
+
+- title: Throughput - Workloads
+  pages:
+    - path: /Throughput-Workloads
+  hasDivider: true
+- title: Top Consumers - Activities
+  pages:
+    - path: /TopConsumers-Activities
+
+- title: Top Consumers - Connections
+  pages:
+    - path: /TopConsumers-Connections
+
+- title: Top Consumers - Units of Work  
+  pages:
+    - path: /TopConsumers-UnitsofWork

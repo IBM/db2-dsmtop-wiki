@@ -1,0 +1,168 @@
+---
+title: Sessions (connections)
+---
+
+<h2>Purpose</h2>
+<p>Connections (sometimes also known as sessions) are tied to users and applications.  This view shows who is connected, what applications they are running and how much of various resources they are consuming.</p>
+
+<p><img alt="connections.png" lconnwikimacro="image" src="../images/connections.png" title="connections.png"/></p>
+<h2>Histograms and Summaries (Gauges)</h2>
+<p><a href="/developerworks/community/wikis/home?lang=en#!/wiki/Text%20Based%20Monitoring%20for%20DB2%20LUW%20-%20dsmtop/page/Sessions%20%28connections%29%20-%20Gauges">Sessions (connections) - Gauges</a></p>
+<h2>Metrics Shown in Grid</h2>
+<p><u>Application Handle</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en">mon_get_connection</a>.application_handle</span></p>
+
+<p><u>Session CPU % Total</u></p>
+<p>This connection's CPU time as a percentage of CPU time for all connections.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.total_cpu_time</span></p>
+<p><br/>
+<u>Stmt CPU % Total</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_activity.stmt_total_cpu_time_us</span></p>
+<p><br/>
+<u>IO % Total</u></p>
+<p>This connection's logical reads as a percentage of logical reads for all connections.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en">mon_get_connection</a></span></p>
+<p  style="margin-bottom:5px;margin-left:40px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001235.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001238.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_index_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022731.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_xda_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060763.html?lang=en">pool_col_l_reads </a>+</span></p>
+<p  style="margin-bottom:5px;margin-left:40px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace;line-height:1.5"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en">pool_temp_data_l_reads </a>+ pool_temp_index_l_reads + pool_temp_xda_l_reads + pool_temp_col_l_reads</span></p>
+<p><br/>
+<u>Memory % Total</u></p>
+<p><br/>
+<u>Event State</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060767.html?cp=SSEPGG_10.5.0&amp;lang=en">mon_get_agent</a>.event_state</span></p>
+<p><br/>
+<u>Event Type</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060767.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">mon_get_agent</a><span style="font-family:'courier new' , 'courier' , monospace">.event_type</span></p>
+<p><br/>
+<u>Event Object</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060767.html?cp=SSEPGG_10.5.0&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">mon_get_agent</a><span style="font-family:'courier new' , 'courier' , monospace">.event_object</span></p>
+<p><br/>
+<u>Application Name</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.application_name</span></p>
+<p><br/>
+<u>Rows Read/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.rows_read</span></p>
+<p><br/>
+<u>Rows Written/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.rows_modified</span></p>
+
+<p><u>IO Reads/s<br/>
+ IO Writes/s<br/>
+ Session Memory</u></p>
+<p>Total memory used by all memory pools associated with this connection.</p>
+<p>In this case, "associated with this connection" means that the application handle for this connection matches what is returned by mon_get_memory_pool.  Most memory pools shown by mon_get_memory_pool show null for the application handle, indicating that they are not associated with a particular connection.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_memory_pool.memory_pool_used</span></p>
+<p><br/>
+<u>Assoc. Agents</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.num_assoc_agents</span></p>
+<p><br/>
+<u>Paral. Degree</u></p>
+<p>Degree of intraparition parallelism for a statement currently executing on this connection.  If there is no statement currently executing, this will be null.</p>
+<p>In the case of multiple statements executing concurrently on the same connection, the maximum parallelism will be shown.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_activity.query_actual_degree</span></p>
+<p><br/>
+<u>Lockwait Time<br/>
+ Locks Held</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.num_locks_held</span></p>
+<p><br/>
+<u>Sort Time(s)<br/>
+ Log Used</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_unit_of_work.uow_log_space_used</span></p>
+
+<p><u>Rows Returned/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_connection.rows_returned</span></p>
+<p><br/>
+<u>Fetch Count (Stmt)/s</u></p>
+<p>Total number of rows returned so far from all statements currently in-flight for this connection.</p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">This is always a shown as a counter, not a delta.</span></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_activity.rows_returned</span></p>
+<p><br/>
+<u>Dynamic SQL/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.dynamic_sql_stmts</span></p>
+<p><br/>
+<u>Static SQL/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.static_sql_stmts</span></p>
+<p><br/>
+<u>#of XQueries/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.xquery_stmts</span></p>
+<p><br/>
+<u>OS User</u></p>
+<p>The ID that the user specified when logging in to the operating system. This ID is distinct from auth_id, which the user specifies when connecting to the database.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001175.html?cp=SSEPGG_10.5.0&amp;lang=en">execution_id</a></span></p>
+<p>Availability: DB2 v10.5 and above.  Null is shown for older versions of DB2.</p>
+<p><br/>
+<u>DB User</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.system_auth_id</span></p>
+<p><br/>
+<u>Client HostName</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.client_hostname</span></p>
+<p><br/>
+<u>Client Platform</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.client_platform</span></p>
+<p><br/>
+<u>Conection Start Time</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.connection_start_time</span></p>
+<p><br/>
+<u>Status Enter Time<br/>
+ TimeIn Status(s)<br/>
+ IO Type (Data/Index/Temp)<br/>
+ Sort Overflow/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.sort_overflows</span></p>
+<p><br/>
+<u>Hash Join Overflow/s</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.hash_join_overflows</span></p>
+<p><br/>
+<u>Client PID</u></p>
+<p><span style="font-family:'arial' , 'helvetica' , sans-serif">The process ID of the client application that made the connection to the database.</span></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.client_pid</span></p>
+<p><br/>
+<u>Coordinator Number</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.coord_member</span></p>
+<p><br/>
+<u>Last Operation</u></p>
+<p><span style="font-family:'arial' , 'helvetica' , sans-serif">The statement operation currently being processed or most recently processed, if none currently running.</span></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif;line-height:1.5">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0056665.html?lang=en">last_request_type</a></span></p>
+<p><br/>
+<u>TimeTo Connect(ms)</u></p>
+<p><span style="font-family:'arial' , 'helvetica' , sans-serif">The time it took for this session's connection to be established.</span></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a></p>
+<p  style="margin-left:40px">total_connect_request_time + total_connect_authentication_time</p>
+<p  style="margin-left:40px"> </p>
+<p><u>Session CPU</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053938.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-22&amp;lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">mon_get_connection</a><span style="font-family:'courier new' , 'courier' , monospace">.total_cpu_time</span></p>
+<p><br/>
+<u>Statement CPU(us)</u></p>
+<p>Sum of CPU time consumed so far by all activities currently associated with this connection.</p>
+<p>This is always a shown as a counter, not a delta.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_activity.total_cpu_time</span></p>
+<p><br/>
+<u>Max Cost Estimate</u></p>
+<p>Estimated cost (timerons) of a statement currently executing on this connection.  <span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">If there is no statement currently executing, this will be null.</span></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">In the case of multiple statements executing concurrently on the same connection, the estimated cost of the most expensive statement will be shown.</span></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_activity.query_cost_estimate</span></p>
+<p><br/>
+<u>Internal Application</u></p>
+<p>"Yes" if DB2 considers this an internal connection, "No" for user initiated connections.</p>
+<p>This is available only in DB2 v10.5 and higher.  For older versions of DB2, dsmtop shows "?".</p>
+<p>There is a user preference (option) provided by dsmtop to hide internal queries that depends on this column.  &lt;link TBD&gt;</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace">mon_get_activity.is_system_appl</span></p>
+<h2>Default Sort Column</h2>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Sessions CPU % Total, descending</span></p>
+<h2>Navigation</h2>
+<p  style="margin-bottom:5px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Keyboard navigation: Vl</p>
+<p  style="margin-bottom:5px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Dedicated shortcut key: alt-l</p>
+<h6>Author: KevinLBeck</h6>

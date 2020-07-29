@@ -1,0 +1,80 @@
+---
+title: Other - HADR
+---
+
+<h2>Purpose</h2>
+<p>HADR stands for High Availability Disaster Recovery, which is a technology used for protecting your database against data loss and allows the database to be highly available through partial or complete site failure. HADR is achieved by replicating data changes from one database (the primary) to another (the standby). When the primary database encounters a failure, the standby database can take over and become the new primary database.</p>
+<p>This view is available only if the database is configured as an HADR database.  dsmtop can monitor the primary or the standby, but only if reads on standby (ROS) is enabled.</p>
+
+<p><img alt="HADR-Primary.png" lconnwikimacro="image" src="../images/HADR-Primary.png" title="HADR-Primary.png"/></p>
+<h2>Summaries and Histograms (Gauges)</h2>
+<p><u>Log Writes</u></p>
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059253.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-61&amp;lang=en">mon_get_transaction_log</a>.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001279.html?cp=SSEPGG_10.5.0&amp;lang=en">log_writes</a></p>
+
+<p><u>Log wtime</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059253.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-61&amp;lang=en" style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">mon_get_transaction_log</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011679.html?cp=SSEPGG_10.5.0&amp;lang=en">log_write_time </a>/ </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001279.html?cp=SSEPGG_10.5.0&amp;lang=en">log_writes</a></p>
+<p  style="margin-left:40px"> </p>
+<p><u>Log IOs</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059253.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-61&amp;lang=en" style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">mon_get_transaction_log</a><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011681.html?cp=SSEPGG_10.5.0&amp;lang=en">num_log_write_io</a></span></p>
+
+<p><u>Log Buff</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0059253.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-61&amp;lang=en" style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">mon_get_transaction_log</a><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011685.html?cp=SSEPGG_10.5.0&amp;lang=en">num_log_data_found_in_buffer</a></span></p>
+
+<p><u>Rf type</u></p>
+<p>Type of object. One of:</p>
+<ul ><li>DATABASE</li><li>INDEX</li><li>PARTITIONGROUP</li><li>TABLE</li><li>TABLESPACE</li><li>VIEW</li></ul>
+<p>Source: <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0060768.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-65&amp;lang=en">mon_get_utility</a>.object_type</p>
+
+<p><u>Rf status</u></p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0022001.html?lang=en">snap_get_util_progress</a>.<a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011406.html?cp=SSEPGG_10.5.0&amp;lang=en">progress_description</a></span></span></p>
+
+<h2>Metrics Shown</h2>
+<hr />
+<h2>General</h2>
+<p><u>Role</u></p>
+<p><u>Standby ID</u></p>
+<p><u>Log stream ID</u></p>
+<p><u>Log gap</u></p>
+<p><u>HADR Flags</u></p>
+<p><u>Error time</u></p>
+<hr />
+<h2>Connection</h2>
+<p><u>State</u></p>
+<p><u>Status</u></p>
+<p><u>Time</u></p>
+<p><u>Mode</u></p>
+<p><u>Hearbeat</u></p>
+<p><u>Timeout</u></p>
+<p><u>Peer window</u></p>
+<hr />
+<h2>Primary</h2>
+<p><u>Host</u></p>
+<p><u>Instance</u></p>
+<p><u>Member</u></p>
+<p><u>Log file</u></p>
+<p><u>Log page</u></p>
+<p><u>Log LSN</u></p>
+<p><u>Log time</u></p>
+<hr />
+<h2>Standby</h2>
+<p><u>Host</u></p>
+<p><u>Instance</u></p>
+<p><u>Member</u></p>
+<p><u>Log file</u></p>
+<p><u>Log page</u></p>
+<p><u>Log LSN</u></p>
+<p><u>Log time</u></p>
+<hr />
+<h2>Replay</h2>
+<p><u>Log file</u></p>
+<p><u>Log page</u></p>
+<p><u>Log LSN</u></p>
+<p><u>Log time</u></p>
+<p><u>RR gap</u></p>
+<h2>Default Sort Column</h2>
+<p>N / A - This is a tile display, not a grid.</p>
+<h2>Navigation</h2>
+<p>Keyboard Navigation: VoA</p>
+<p>Dedicated shortcut key: alt-A</p>
+<h6>Author: KevinLBeck</h6>

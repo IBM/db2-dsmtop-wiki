@@ -1,0 +1,89 @@
+---
+title: Throughput - Skew Monitor
+---
+
+<h2>Purpose</h2>
+<p>This view presents data useful in assessing skew in access patterns.  When a query accesses more data on some members than on others, the more heavily loaded members become bottlenecks, making the whole query take longer.</p>
+
+<p><img alt="Throughput-SkewMonitor.png" lconnwikimacro="image" src="../images/Throughput-SkewMonitor.png" title="Throughput-SkewMonitor.png"/></p>
+
+<h2>Histograms and Summaries (Gauges)</h2>
+<p>(none)</p>
+<h2>Metrics Shown in Grid</h2>
+<p><u>Member</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en">mon_get_service_subclass</a>.<a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054432.html?cp=SSEPGG_10.5.0&amp;lang=en">member</a></span></p>
+<p><br/>
+<u>CPU Time</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.total_cpu_time</span></p>
+<p><br/>
+<u>Logical Reads/s</u></p>
+<p>Logical reads is a better measure of access patterns than rows read because it includes index accesses.</p>
+
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-bottom:5px;margin-left:40px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001235.html?cp=SSEPGG_10.5.0&amp;lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001238.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_index_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022731.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">pool_xda_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060763.html?lang=en">pool_col_l_reads</a> +</span></p>
+<p  style="margin-bottom:5px;margin-left:40px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en">pool_temp_data_l_reads </a><span style="font-family:'courier new' , 'courier' , monospace;line-height:1.5">+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011303.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_index_l_reads </a>+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0022738.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_xda_l_reads </a>+ <a href="http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0060873.html?cp=SSEPGG_10.5.0&amp;lang=en">pool_temp_col_l_reads</a></span></p>
+<p><br/>
+<u>Logical Temp Reads/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0011302.html?lang=en" style="text-decoration:underline;color:rgb( 5 , 56 , 107 );font-family:'courier new' , 'courier' , monospace">pool_temp_data_l_reads</a><span style="font-family:'courier new' , 'courier' , monospace"> + pool_temp_index_l_reads + pool_temp_xda_l_reads + pool_temp_col_l_reads</span></p>
+<p><br/>
+<u>Rows Read/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.rows_read</span></p>
+<p><br/>
+<u>Rows Modified/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.rows_modified</span></p>
+<p><br/>
+<u>TQ Recvs/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.fcm_tq_recvs_total</span></p>
+<p><br/>
+<u>TQ Sends/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.fcm_tq_sends_total</span></p>
+<p><br/>
+<u>TQ Spills/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.tq_tot_send_spills</span></p>
+<p><br/>
+<u>Overflows/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">sort_overflows + hash_join_overflows + olap_func_overflows + hash_grpby_overflows</span></p>
+<p><br/>
+<u>FCM Volume (KB/s)</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">(fcm_recv_volume + fcm_send_volume) / 1024.0</span></p>
+<p><br/>
+<u>FCM Buffers Sent/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.fcm_sends_total</span></p>
+<p><br/>
+<u>FCM Buffers Recvd/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.fcm_recvs_total</span></p>
+<p><br/>
+<u>Activities Completed/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.act_completed_total</span></p>
+<p><br/>
+<u>Requests/s</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053941.html?lang=en" style="font-family:'courier new' , 'courier' , monospace">mon_get_service_subclass</a><span style="font-family:'courier new' , 'courier' , monospace">.rqsts_completed_total</span></p>
+<p><br/>
+<u>In-flight Activities</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source:</span></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">select count(*) from table(wlm_get_workload_occurrence_activities(null,member))</span></p>
+<h2>Default Sort Column</h2>
+<p>Member, ascending</p>
+<h2>Navigation</h2>
+<p>Keyboard navigation: VtJ</p>
+<p>Dedicated shortcut key: alt-J</p>
+<h6>Author: KevinLBeck</h6>

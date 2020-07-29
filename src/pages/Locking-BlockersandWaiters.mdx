@@ -1,0 +1,75 @@
+---
+title: Locking - Blockers and Waiters
+---
+
+<h2>Purpose</h2>
+<p>This card shows transactions that are blocking others.  In scenarios where work is hung, waiting on locks, this shows you the root cause of the problem.  You can easily see which connections could be forced to resolve the hang.</p>
+
+<p><img alt="Locking-BlockersWaiters.png" lconnwikimacro="image" src="../images/Locking-BlockersWaiters.png" title="Locking-BlockersWaiters.png"/></p>
+<h2>Histograms and Summaries (Gauges)</h2>
+<p>(none)</p>
+<h2>Metrics Shown in Grid</h2>
+<p><u>Application Handle</u></p>
+
+<p>Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0056428.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-36&amp;lang=en">mon_get_locks</a>.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054410.html?cp=SSEPGG_10.5.0">application_handle</a></span></p>
+<p><br/>
+<u>Member</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0056428.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-36&amp;lang=en">mon_get_locks</a>.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054432.html?cp=SSEPGG_10.5.0">member</a></span></p>
+
+<p><u>Application Name</u></p>
+
+<p>Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0054685.html?cp=SSEPGG_10.5.0%2F3-6-1-3-18-9&amp;lang=en">wlm_get_service_class_workload_occurrences</a>.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0054410.html?cp=SSEPGG_10.5.0">application_name</a></span></p>
+<p><br/>
+<u>Transaction State</u></p>
+
+<p>Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053939.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-62&amp;lang=en">mon_get_unit_of_work</a>.workload_occurrence_state</span></p>
+<p><br/>
+<u>User ID</u></p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0054685.html?cp=SSEPGG_10.5.0%2F3-6-1-3-18-9&amp;lang=en">wlm_get_service_class_workload_occurrences</a>.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0010880.html?cp=SSEPGG_10.5.0">session_auth_id</a></span></p>
+<p><br/>
+<u>Lock Mode</u></p>
+<p>Lock mode for the transaction holding the lock.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0056428.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-36&amp;lang=en">mon_get_locks</a>.<a href="http://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.mon.doc/doc/r0001286.html?cp=SSEPGG_10.5.0">lock_mode</a></span></p>
+<p><br/>
+<u>Number of Lock Waits</u></p>
+<p>Number of times the transaction holding the lock has waited for a lock during its lifetime.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053939.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-62&amp;lang=en">mon_get_unit_of_work</a>.lock_waits</span></p>
+<p><br/>
+<u>Number of Lock Held</u></p>
+<p>Number of locks currently held by the transaction holding this lock.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053939.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-62&amp;lang=en">mon_get_unit_of_work</a>.num_locks_held</span></p>
+<p><br/>
+<u>Number of Transactions Blocked</u></p>
+<p>Number of other transactions that are currently waiting on this lock (i.e. blocked by this transaction).</p>
+
+<p>Source: (query)</p>
+<p><br/>
+<u>Lock Wait Time of Blocked Transactions (ms)</u></p>
+<p>The total time spent waiting on locks for all transactions currently waiting on this lock.</p>
+<p>This time includes time previously spent waiting on other locks.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: </span><span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053939.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-62&amp;lang=en">mon_get_unit_of_work</a></span></p>
+<p  style="margin-left:40px"><span style="font-family:'courier new' , 'courier' , monospace">sum(lock_wait_time) for all transactions waiting on this lock</span></p>
+<p><br/>
+<u>Maximum Wait Time</u></p>
+<p>The largest value for total time spent waiting on locks for a transaction blocked by this lock.</p>
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">This time includes time previously spent waiting on other locks.</span></p>
+
+<p  style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: <span style="font-family:'courier new' , 'courier' , monospace"><a href="http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.sql.rtn.doc/doc/r0053939.html?cp=SSEPGG_10.5.0%2F3-6-1-3-10-62&amp;lang=en">mon_get_unit_of_work</a></span></p>
+<p  style="margin-left:40px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif"><span style="font-family:'courier new' , 'courier' , monospace">max(lock_wait_time) for all transactions waiting on this lock</span></p>
+<p><br/>
+<u>Is Blocked</u></p>
+<p>Flag (Yes or No) indicating whether the transaction holding this lock is itself blocked waiting on another lock.</p>
+
+<p><span style="font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Source: (query)</span></p>
+
+<h2>Default Sort Order</h2>
+<h2>Navigation</h2>
+<p  style="margin-bottom:5px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Keyboard navigation: VLb</p>
+<p  style="margin-bottom:5px;padding-top:2px;padding-bottom:2px;font-family:'helvetica neue' , 'helvetica' , 'arial' , sans-serif">Dedicated shortcut key: (none)</p>
+<h6>Author: KevinLBeck</h6>
