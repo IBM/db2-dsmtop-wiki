@@ -3,9 +3,7 @@ module.exports = {
     title: 'IBM Db2 dsmtop Wiki',
     description: 'A wiki for the Db2 command "dsmtop"',
     keywords: 'dsmtop,db2,ibm',
-    lang: 'en',
-    navigationStyle: 'sidebar',
-    isSearchEnabled: false
+    lang: 'en'
   },
   pathPrefix: `/IBM/db2-dsmtop-wiki`,
   plugins: [
@@ -17,9 +15,7 @@ module.exports = {
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#0062ff',
-        display: 'browser',
-        navigationStyle: 'sidebar',
-        isSearchEnabled: false
+        display: 'browser'
       },
     },
     {
